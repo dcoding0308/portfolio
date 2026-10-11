@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npx --yes pnpm@12.10.1 install --frozen-lockfile",
+  "buildCommand": "PORT=3000 BASE_PATH=/ npx --yes pnpm@12.10.1 --filter @workspace/devansh-portfolio run build",
+  "outputDirectory": "artifacts/devansh-portfolio/dist/public",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}

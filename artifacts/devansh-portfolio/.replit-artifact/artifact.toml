@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Devansh Raina — Engineering Portfolio"
+description = "A technical portfolio for software engineer Devansh Raina, exploring clinical machine learning, real-time conversational AI, career milestones, personal projects, engineering decisions, and evidence-backed skills."
+version = "1.0.0"
+id = "artifacts/devansh-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21452
+
+[services.development]
+run = "pnpm --filter @workspace/devansh-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/devansh-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/devansh-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21452"
+BASE_PATH = "/"
